@@ -1,0 +1,162 @@
+{
+    "pet": {
+        "user": {
+            "type": "Schema.ObjectId",
+            "ref": "user",
+            "required": true
+
+        },
+        "name": {
+            "type": "String",
+            "required": true,
+            "minLength": 2,
+            "maxLength": 20,
+            "description": "Es obligatorio y debe ser un cadena con una longitud entre  2 y 20"
+        },
+        "race": {
+            "type": "String",
+            "required": true,
+            "minLength": 3,
+            "maxLength": 25,
+            "description": "Es obligatorio y debe ser un cadena con una longitud entre  3 y 25"
+        },
+        "diseases": {
+            "type": "String",
+            "required": true,
+            "minLength": 4,
+            "maxLength": 200,
+            "description": "Es obligatorio y debe ser un cadena con una longitud entre 4 y 200"
+        },
+        "sex": {
+            "type": "String",
+            "required": true,
+            "minLength": 8,
+            "maxLength": 9,
+            "description": "Es obligatorio y debe ser un cadena con una longitud entre 8 y 9",
+            "enum": [
+                "macho",
+                "hembra"
+            ]
+        },
+        "age": {
+            "type": "Number",
+            "required": true,
+            "minLength": 1,
+            "maxLength": 30,
+            "description": "Es obligatorio y debe ser entre 1 y 30"
+        },
+        "weight": {
+            "type": "Number",
+            "required": true,
+            "minimum": 1,
+            "maximum": 150,
+            "description": "Debe ser un número entero entre [ 1, 150 ]"
+        },
+        "colour": {
+            "type": "String",
+            "required": true
+        },
+        "specie": {
+            "type": "Schema.ObjectId",
+            "ref": "specie"
+        }
+    },
+    "user": {
+        "rut":{
+            "type":"String",
+            "required":true
+        },
+        "name": {
+            "type": "String",
+            "required": true
+        },
+        "age":{
+            "type": "Number",
+            "required": true,
+            "minimum": 18,
+            "maximum": 99,
+            "description": "Debe ser un número entero entre [ 18, 99 ]",
+            "default": "00"
+        },
+        "email": {
+            "type": "String",
+            "required": true,
+            "default": "ejemplo@gmail.com"
+        },
+        "telephonenumber":{
+            "type": "Number",
+            "required": true,
+            "default": "00000000"
+        },
+        "apartmentnumber": {
+            "type": "String",
+            "required": true
+        },
+        "numberpets": {
+            "type": "Number",
+            "required": true,
+            "minimum": 1,
+            "maximum": 10,
+            "description": "Debe ser un número entero entre [ 1, 10 ]"
+        },
+        "role": {
+            "type": "String",
+            "enum": [
+                "user",
+                "admin"
+            ],
+            "default": "user"
+        }
+    },
+    "specie":{
+        "name": {
+            "type": "String",
+            "required": true
+        }
+    },
+    "controlService":{
+        "namepet": {
+            "type": "Schema.ObjectId",
+            "ref": "pet"
+        },
+        "benefit": {
+            "type": "Schema.ObjectId",
+            "ref": "benefit"
+        },
+        "entrydate": {
+            "type": "String",
+                "required": true
+        },
+        "entryhour": {
+            "type": "String",
+            "required": true
+        },
+        "nameenter": {
+            "type": "String",
+            "required": true
+        },
+        "exitdate": {
+            "type": "String"
+        },
+        "exithour": {
+            "type": "String"
+        },
+        "namewithdraw": {
+            "type": "String"
+        },
+        "state": {
+            "type": "String",
+            "enum": [
+                "valid",
+                "complete"
+            ],
+            "default": "valid"
+        }
+    },
+    "benefit":{
+        "name": {
+            "type": "String",
+            "required": true
+        }
+    }
+}
