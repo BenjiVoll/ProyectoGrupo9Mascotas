@@ -10,7 +10,8 @@ const benefitRoutes= require('./routes/benefitRoutes')
 const userRoutes= require('./routes/userRoutes')
 const controlserviceRoutes= require('./routes/controlserviceRoutes');
 const assessmentRoutes= require('./routes/assessmentRoutes');
-const controlservice = require('./models/controlservice');
+//const controlservice = require('./models/controlservice');
+const mailerRoutes = require('./routes/mailerRoutes');
 
 app.use(cors())
 app.use(express.json());
@@ -21,6 +22,8 @@ app.use('/api', benefitRoutes);
 app.use('/api', userRoutes);
 app.use('/api', assessmentRoutes);
 app.use('/api', controlserviceRoutes);
+//app.use('/api', controlservice);
+app.use('/api', mailerRoutes);
 
 
 
